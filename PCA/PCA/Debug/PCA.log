@@ -1,0 +1,5 @@
+﻿  PCA.cpp
+c:\users\laura\documents\github\pca\pca\pca\pca.cpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\laura\documents\github\pca\pca\pca\pca.cpp(2): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  PCA.vcxproj -> C:\Users\Laura\Documents\GitHub\PCA\PCA\Debug\PCA.exe
+  PCA.vcxproj -> C:\Users\Laura\Documents\GitHub\PCA\PCA\Debug\PCA.pdb (Partial PDB)
