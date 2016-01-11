@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <mkl.h>
 #include <errno.h>
-#include "FileManagerForIris.h"
+#include "FileManager.h"
 
 using namespace std;
 
@@ -56,12 +56,12 @@ void quicksort(double eigenvalues[],double eigenvectors[] ,int izq, int der,int 
 }
 int main(int argc, char* argv[]){
 	//Lectura del fichero
-	int numeroDeFilas = dameNumRegistros();
-	char linea[100];
-	int numeroDeColumnas = dameNumCampos();
+	FileManager fm("iris.dat");
+	int numeroDeFilas = fm.dameNumRegistros();
+	int numeroDeColumnas = fm.dameNumCampos();
 	
 	double *x = (double *)mkl_malloc(numeroDeColumnas*numeroDeFilas*sizeof(double), 64);
-	leeFicheroDeDatos(x);
+	fm.leeFicheroDeDatos(x);
 
 	//Lectura del fichero
 	//Calcular media para cada columna;

@@ -18,7 +18,7 @@
     <ClCompile Include="PCA.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FileManagerForIris.cpp">
+    <ClCompile Include="FileManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -31,7 +31,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FileManagerForIris.h">
+    <ClInclude Include="FileManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
