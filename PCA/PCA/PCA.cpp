@@ -129,24 +129,7 @@ int main(int argc, char* argv[]){
 		printf("\n");
 	}
 	// Escritura en el fichero
-	FILE *out;
-	errno = 0;
-	errno = fopen_s(&out,"iris_pca.dat","w");
-	//if (!out){
-	if (errno != 0){
-		printf("No es posible abrir el fichero de escritura");
-		exit(0);
-	}
-
-	fprintf(out, "%d\n", numeroDeFilas);
-	fprintf(out, "%d\n", numeroDeColumnas);
-	for (int i = 0; i < numeroDeFilas; i++){
-		for (int j = 0; j < numeroDeColumnas; j++){
-			fprintf(out, "%lf ",y[i*numeroDeColumnas + j]);
-		}
-		//fprintf(out, "%d\n", tipo[i]);
-	}
-	fclose(out);
+	fm.escribeSalida(y, "salida_iris.dat");
 	getchar();
 	return 0;
 }

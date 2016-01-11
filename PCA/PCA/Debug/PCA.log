@@ -3,5 +3,10 @@ c:\users\laura\documents\github\pca\pca\pca\pca.cpp(1): warning C4067: unexpecte
 c:\users\laura\documents\github\pca\pca\pca\pca.cpp(2): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 c:\users\laura\documents\github\pca\pca\pca\filemanager.h(2): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 c:\users\laura\documents\github\pca\pca\pca\filemanager.h(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  FileManager.cpp
+c:\users\laura\documents\github\pca\pca\pca\filemanager.h(2): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\laura\documents\github\pca\pca\pca\filemanager.h(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\laura\documents\github\pca\pca\pca\filemanager.cpp(14): warning C4101: 'numeros': unreferenced local variable
+  Generating Code...
   PCA.vcxproj -> C:\Users\Laura\Documents\GitHub\PCA\PCA\Debug\PCA.exe
   PCA.vcxproj -> C:\Users\Laura\Documents\GitHub\PCA\PCA\Debug\PCA.pdb (Partial PDB)

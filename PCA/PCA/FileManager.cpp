@@ -36,7 +36,7 @@ int FileManager::leeFicheroDeDatos(double* dst) {
 	ifstream in(fileName);
 	if (!in.good()) {
 		printf("No se ha abierto correctamente el fichero");
-		exit(0);
+		return -1;
 	}
 
 	char linea[100];
@@ -57,8 +57,26 @@ int FileManager::leeFicheroDeDatos(double* dst) {
 		}
 	}
 	in.close();
+	return 0;
 }
 
 int FileManager::escribeSalida(double* data, char* outFileName) {
+	FILE *out;
+	errno = 0;
+	errno = fopen_s(&out, outFileName, "w");
+	//if (!out){
+	if (errno != 0) {
+		printf("No es posible abrir el fichero de escritura");
+		return -1;
+	}
+
+	fprintf(out, "%d\n", this->dameNumRegistros());
+	fprintf(out, "%d\n",this->dameNumCampos());
+	for (int i = 0; i < this->dameNumRegistros(); i++) {
+		for (int j = 0; j <this->dameNumCampos(); j++) {
+			fprintf(out, "%lf ", data[i*this->dameNumCampos() + j]);
+		}
+	}
+	fclose(out);
 	return 0;
 }
