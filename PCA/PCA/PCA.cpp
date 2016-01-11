@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <mkl.h>
 #include <errno.h>
+#include "FileManagerForIris.h"
 
 using namespace std;
 
@@ -55,32 +56,13 @@ void quicksort(double eigenvalues[],double eigenvectors[] ,int izq, int der,int 
 }
 int main(int argc, char* argv[]){
 	//Lectura del fichero
-	int numeroDeFilas = 0;
+	int numeroDeFilas = dameNumRegistros();
 	char linea[100];
-	char *numeros;
-	int numeroDeColumnas = 0;
-	char* context = NULL;
-	ifstream in("iris.dat");
-	if (!in.good()){
-		printf("No se ha abierto correctamente el fichero");
-		exit(0);
-	}
-	in.getline(linea, 100);
-	numeroDeFilas = atoi(linea);
-	in.getline(linea, 100);
-	numeroDeColumnas = atoi(linea);
+	int numeroDeColumnas = dameNumCampos();
+	
 	double *x = (double *)mkl_malloc(numeroDeColumnas*numeroDeFilas*sizeof(double), 64);
-	int *tipo = (int *)mkl_malloc(numeroDeFilas*sizeof(int), 64);
-	for (int i = 0; i < numeroDeFilas; i++){
-		in.getline(linea, 100);
-		numeros = strtok_s(linea, " ", &context);
-		for (int j = 0; j < numeroDeColumnas; j++){
-			x[i*numeroDeColumnas +j] = atof(numeros);
-			numeros = strtok_s(NULL, " ", &context);
-		}
-		tipo[i] = atoi(numeros);
-	}
-	in.close();
+	leeFicheroDeDatos(x);
+
 	//Lectura del fichero
 	//Calcular media para cada columna;
 	double *media = (double *)mkl_malloc(numeroDeFilas*sizeof(double), 64);
@@ -162,7 +144,7 @@ int main(int argc, char* argv[]){
 		for (int j = 0; j < numeroDeColumnas; j++){
 			fprintf(out, "%lf ",y[i*numeroDeColumnas + j]);
 		}
-		fprintf(out, "%d\n", tipo[i]);
+		//fprintf(out, "%d\n", tipo[i]);
 	}
 	fclose(out);
 	getchar();
